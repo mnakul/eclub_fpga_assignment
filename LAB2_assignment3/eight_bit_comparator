@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    11:51:39 05/25/2019 
+// Design Name: 
+// Module Name:    eight_bit_comparator 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module eight_bit_comparator(pb1,pb2,pb3,pb4,sig,less,great,equ
+    );
+	 input pb1,pb2,pb3,pb4;
+	 input [4:0] sig;
+	 output less,great,equ;
+	 reg [7:0] X;
+	 reg [7:0] Y;
+	 wire [6:0] less;
+	 wire [6:0] equ;
+	 wire [6:0] great;
+	 
+	 
+	 one_bit_comparator C1(X[7],Y[7],0,0,1,less[6],great[6],equ[6]);
+	 one_bit_comparator C2(X[6],Y[6],less[6],great[6],equ[6],less[5],great[5],equ[5]);
+	 one_bit_comparator C3(X[5],Y[5],less[5],great[5],equ[5],less[4],great[4],equ[4]);
+	 one_bit_comparator C4(X[4],Y[4],less[4],great[4],equ[4],less[3],great[3],equ[3]);
+	 one_bit_comparator C5(X[3],Y[3],less[3],great[3],equ[3],less[2],great[2],equ[2]);
+	 one_bit_comparator C6(X[2],Y[2],less[2],great[2],equ[2],less[1],great[1],equ[1]);
+	 one_bit_comparator C7(X[1],Y[1],less[1],great[1],equ[1],less[0],great[0],equ[0]);
+	 one_bit_comparator C8(X[0],Y[0],less[0],great[0],equ[0],less,great,equ);
+	 
+	 
+	 
+	 
+	 always @(posedge pb1)begin
+	  X[3:0]<=sig;
+	  end
+	  always @(posedge pb2)begin
+	  Y[3:0]<=sig;
+	  end
+	  always @(posedge pb3)begin
+	  X[7:4]<=sig;
+	  end
+	  always @(posedge pb4)begin
+	  Y[7:4]<=sig;
+	  end
+	 
+
+
+endmodule
+
