@@ -1,0 +1,56 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    21:30:36 05/25/2019 
+// Design Name: 
+// Module Name:    decoder 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module storeindex(clk,row_store,row_valid,flag
+    );
+	 input clk;
+	 output flag;
+	 output [2:0] row_store;
+	 output row_valid;
+	 reg row_valid;
+    reg [2:0]X[0:7];
+    reg [3:0] row_count;reg [2:0]row_store;
+    reg flag;
+initial begin
+  X[0]=3;
+  X[1]=4;
+  X[2]=7;
+  X[3]=2;
+  X[4]=3;
+  X[5]=5;
+  X[6]=0;
+  X[7]=2;
+  row_count=0;
+  flag=0;
+  row_valid=0;
+end
+always @(posedge clk)begin
+  if(flag==0)begin
+    row_store<=X[row_count];
+	 row_valid<=1;
+    row_count<=row_count+1;
+  end
+  if(row_count==8)begin
+    flag<=1; 
+  end
+end
+
+endmodule
+

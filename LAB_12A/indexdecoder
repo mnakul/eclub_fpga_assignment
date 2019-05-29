@@ -1,0 +1,49 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    11:31:38 05/27/2019 
+// Design Name: 
+// Module Name:    indexdecoder 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module indexdecoder(clk,row_store,row_valid,flag,out,par
+    );
+	 input clk;input flag;
+	 input [2:0] row_store;
+	 input row_valid;
+	 output par;
+	 output [7:0] out;
+	 reg par;
+	 reg [7:0] out;
+	 initial begin
+	    out = 0;
+		 end
+	 always @(posedge clk) begin 
+	 if((flag==0)&&(row_valid == 1))begin
+	 out[0] <= out[0] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[1] <= out[1] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[2] <= out[2] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[3] <= out[3] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[4] <= out[4] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[5] <= out[5] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[6] <= out[6] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 out[7] <= out[7] ^ (~row_store[0] & ~row_store[1] & ~row_store[2]);
+	 end
+	 else if(flag==1) begin
+	 par= out[0]^out[1]^out[2]^out[3]^out[4]^out[5]^out[6]^out[7];
+	 end
+	 end
+endmodule
+

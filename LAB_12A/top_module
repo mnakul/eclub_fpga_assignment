@@ -1,0 +1,64 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    11:06:27 05/29/2019 
+// Design Name: 
+// Module Name:    top_module 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module top_module(clk,b,led0,led1,led2,led3,led4,led5,led6,led7
+    );
+   input clk;input b;
+   output led0, led1, led2, led3, led4, led5, led6, led7;
+   reg led0, led1, led2, led3, led4, led5, led6, led7;
+   wire [2:0] row_store;
+	wire flag;
+	wire row_valid;
+	wire [7:0] out;
+	wire par;
+	reg b_press;
+	initial begin
+	  b_press = 0;
+	  end
+	storeindex si1(clk,row_store,row_valid,flag);
+	indexdecoder ide1 (clk,row_store,row_valid,flag,out,par);
+	
+	always @(posedge clk)begin
+	 if(flag) begin
+	 if((b==1)||(b_press==1))begin
+	   b_press<=1;
+		led0<=par;
+		led1<=0;
+		led2<=0;
+		led3<=0;
+		led4<=0;
+		led5<=0;
+		led6<=0;
+		led7<=0;
+		end
+	 else begin
+	   led0<= out[0];
+		led1<= out[1];
+		led2<= out[2];
+		led3<= out[3];
+		led4<= out[4];
+		led5<= out[5];
+		led6<= out[6];
+		led7<= out[7];
+		end
+	end
+end
+endmodule
+
