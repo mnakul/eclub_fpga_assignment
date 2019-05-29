@@ -1,0 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    12:09:55 05/25/2019 
+// Design Name: 
+// Module Name:    six_bit_adder 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module six_bit_adder(x,y,z,cin,cout
+    );
+	 input [5:0]x;input [5:0]y;input cin;
+	 output cout;output [5:0]z;
+	 wire cout;wire [5:0]z;
+	 wire carry;
+	 five_bit_adder FA6 (x[4:0],y[4:0],z[4:0],cin,carry);
+	 full_adder FA7 (x[5],y[5],z[5],carry,cout);
+
+
+endmodule
+

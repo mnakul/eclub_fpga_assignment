@@ -1,0 +1,108 @@
+`timescale 1ns / 1ps
+
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   22:16:11 05/26/2019
+// Design Name:   final
+// Module Name:   /home/milind/LAB3/testing.v
+// Project Name:  LAB3
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: final
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+module testing;
+
+	// Inputs
+	reg [3:0] sig;
+	reg pb1;
+	reg pb2;
+	reg pb3;
+	reg pb4;
+	reg pb5;
+
+	// Instantiate the Unit Under Test (UUT)
+	final uut (
+		.sig(sig), 
+		.pb1(pb1), 
+		.pb2(pb2), 
+		.pb3(pb3), 
+		.pb4(pb4), 
+		.pb5(pb5)
+	);
+
+	initial begin
+		// Initialize Inputs
+		sig = 0;
+		pb1 = 0;
+		pb2 = 0;
+		pb3 = 0;
+		pb4 = 0;
+		pb5 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		sig = 14;
+		pb1 = 1;
+		pb2 = 0;
+		pb3 = 0;
+		pb4 = 0;
+		pb5 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		sig = 15;
+		pb1 = 0;
+		pb2 = 1;
+		pb3 = 0;
+		pb4 = 0;
+		pb5 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		sig = 14;
+		pb1 = 0;
+		pb2 = 0;
+		pb3 = 1;
+		pb4 = 0;
+		pb5 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		sig = 15;
+		pb1 = 0;
+		pb2 = 0;
+		pb3 = 0;
+		pb4 = 1;
+		pb5 = 0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+        
+		// Add stimulus here
+		sig = 16;
+		pb1 = 0;
+		pb2 = 0;
+		pb3 = 0;
+		pb4 = 0;
+		pb5 = 1;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+
+	end
+      
+endmodule
+
+

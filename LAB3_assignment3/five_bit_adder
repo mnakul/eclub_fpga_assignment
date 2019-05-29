@@ -1,0 +1,31 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    12:10:28 05/25/2019 
+// Design Name: 
+// Module Name:    five_bit_adder 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module five_bit_adder(x,y,z,cin,cout
+    );
+	 input [4:0]x;input [4:0]y;input cin;
+	 output cout;output [4:0]z;
+	 wire [4:0]z;wire cout;
+	 wire carry;
+	 four_bit_adder FA4 (x[3:0],y[3:0],z[3:0],cin,carry);
+    full_adder FA5 (x[4],y[4],z[4],carry,cout);
+
+endmodule
+
