@@ -64,7 +64,7 @@ module testing;
 		pb4 = 0;
 		sig = 14;
 
-		// Wait 100 ns for global reset to finish
+		// Wait 100 ns for global reset to 
 		#100;
 		pb1 = 0;
 		pb2 = 0;
