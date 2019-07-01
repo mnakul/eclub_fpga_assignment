@@ -1,0 +1,14 @@
+NET clk LOC="AH17";  # Bank 4, Vcco=3.3V, No DCI
+NET rst LOC="AF26";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET start LOC="AE27";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET target_search[0] LOC="AF25";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET target_search[1] LOC="AG27";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET target_search[2] LOC="U25";   # Bank 15, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET led0 LOC="H18";   # Bank 3, Vcco=2.5V, No DCI
+NET led1 LOC="L18";   # Bank 3, Vcco=2.5V, No DCI
+NET led2 LOC="G15";   # Bank 3, Vcco=2.5V, No DCI
+NET led3 LOC="AD26";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET led4 LOC="G16";   # Bank 3, Vcco=2.5V, No DCI
+NET led5 LOC="AD25";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET led6 LOC="AD24";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
+NET led7 LOC="AE24";  # Bank 21, Vcco=1.8V, DCI using 49.9 ohm resistors
